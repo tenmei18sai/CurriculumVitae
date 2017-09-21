@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <title>简历--王天明</title>
+    <!--import css-->
+    <link rel="stylesheet/less" href="css/index.less">
+    <script src="js/less-2.5.3.min.js"></script>
+    <script>
+        //适配手机
+        !function(){
+            computedFontsize();
+            window.addEventListener('resize',computedFontsize,false);
+            function computedFontsize() {
+                var winW=document.documentElement.clientWidth;
+                document.documentElement.style.fontSize=winW/640*100+'px';
+            }
+        }();
+    </script>
+</head>
+<body>
+<!--main-->
+<main class="container">
+    <div id="loading">
+        <h1 class="loading-title">H5-个人创意简历</h1>
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_four"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_one"></div>
+            </div>
+        </div>
+        <div class="loading-progress">1%</div>
+    </div>
+    <!--<div class="bg-music"><img src="images/bg-music.svg" alt="#"></div>-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide page1">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="swiper-slide page2">
+
+            </div>
+            <div class="swiper-slide page3">Slide 3</div>
+        </div>
+
+
+    </div>
+</main>
+
+<!--import js-->
+<script src="js/zepto.min.js"></script>
+<script src="js/swiper-3.4.2.jquery.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
