@@ -109,5 +109,5 @@ let swiperRender=(function () {
         }
     }
 })();
-swiperRender.init();
+loadPage.init();
 
