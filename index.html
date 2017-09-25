@@ -13,12 +13,13 @@
     <script src="js/less-2.5.3.min.js"></script>
     <script>
         //适配手机
-        !function(){
-            computedFontsize();
-            window.addEventListener('resize',computedFontsize,false);
-            function computedFontsize() {
-                var winW=document.documentElement.clientWidth;
-                document.documentElement.style.fontSize=winW/640*100+'px';
+        ~function () {
+            window.addEventListener('resize', computed, false);
+            computed();
+            function computed() {
+                var deviceW = document.documentElement.clientWidth;
+                if (deviceW > 640) return;
+                document.documentElement.style.fontSize = deviceW / 640 * 100 + 'px';
             }
         }();
     </script>
@@ -36,31 +37,70 @@
                 <div class="object" id="object_one"></div>
             </div>
         </div>
-        <div class="loading-progress">1%</div>
+        <div class="loading-progress">0%</div>
     </div>
-    <!--<div class="bg-music"><img src="images/bg-music.svg" alt="#"></div>-->
+
     <div class="swiper-container">
         <div class="swiper-wrapper">
+            <div class="bg-music">
+                <audio class="audio" src="images/bg-music.mp3" loop="loop" preload="none"></audio>
+            </div>
             <div class="swiper-slide page1">
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>
+                        <img src="images/16.png" alt="#">
+                    </li>
+                    <li>
+                        <img src="images/15.png" alt="#">
+                        <img src="images/8.png" alt="#">
+                    </li>
+                    <li>
+                        <img src="images/24.png" alt="#">
+                    </li>
+                    <li>
+                        <img src="images/23.png" alt="#">
+                    </li>
+                    <li>
+                        <img src="images/7.png" alt="#">
+                    </li>
+                    <li>
+                        <img src="images/14.png" alt="#">
+                    </li>
+                    <li>
+                        <img src="images/14.png" alt="#">
+                    </li>
+                    <li>
+                        <img src="images/21.png" alt="#">
+                    </li>
+                    <li>
+                        <img src="images/13.png" alt="#">
+                    </li>
+                    <li>
+                        <img src="images/1.png" alt="#">
+                    </li>
+                    <li>
+                        <img src="images/26.png" alt="#">
+                    </li>
+
                 </ul>
-            </div>
-            <div class="swiper-slide page2">
+                <footer class="footer">
+                    <div class="pre-wrap-bottom">
+                        <div class="pre-box1">
+                            <div class="pre1"></div>
+                        </div>
+                        <div class="pre-box2">
+                            <div class="pre2"></div>
+                        </div>
+                    </div>
+                </footer>
 
             </div>
-            <div class="swiper-slide page3">Slide 3</div>
+            <div class="swiper-slide page2">
+                Slide 2
+            </div>
+            <div class="swiper-slide page3">
+                Slide 3
+            </div>
         </div>
 
 

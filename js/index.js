@@ -38,9 +38,9 @@ let loadPage=(function () {
             oImg.onload=function () {
                 $loadProgress.html(Math.floor((++n/m*100))+'%');
                 if(n===m){
-                    lodingTimer=window.setTimeout(()=>{
+                    lodingTimer=window.setTimeout(function(){
                         lodingTimer=null;
-                        $loadPage.remove();
+                        $loadPage.css('display','none');
                         swiperRender.init();
                     },2000)
                 }
@@ -52,36 +52,62 @@ let loadPage=(function () {
             let loadPageTimer=null;
             $loadPage.css('display','block');
             lazyImg();
-            // $(window).on('load',function () {
-            //     $loadPage.css('display','block');
-            // });
 
-            // loadPageTimer=window.setTimeout(swiperRender.init,1000)
         }
     }
 })();
-
+$(document).on('touchstart touchmove touchend', function (ev) {
+    ev.preventDefault();
+});
 let swiperRender=(function () {
     let $page1=$('.swiper-container');
-
-
+    let $bgMusic=$('.bg-music');
+    let Audio=$bgMusic.children('.audio').get(0);
+    let music=()=>{
+        let isPlay=true;
+        $bgMusic.css('display','block');
+        $bgMusic.addClass('move');
+        Audio.play();
+        $bgMusic.on('tap',()=>{
+            //停止播放
+            if(isPlay){
+                isPlay=false;
+                Audio.pause();
+                $bgMusic.removeClass('move');
+            }else{
+                //播放开始
+                isPlay=true;
+                Audio.play();
+                $bgMusic.addClass('move');
+            }
+        });
+    };
+    let change=(ev)=>{
+        let index=ev.activeIndex;
+        let sideAry=ev.slides;
+        $page1.css('display','block');
+        $.each(sideAry,(n,item)=>{
+            item.id= n===index?`page${n+1}`:'';
+        })
+    };
     return {
         init(){
+           music();
             $('#loading').css('display','none');
-            $page1.css('display','block');
-          let myResume = new Swiper('.swiper-container', {
+            let myResume = new Swiper('.swiper-container', {
               height:window.innerHeight,//高度是百分百
               // effect : 'flip',//翻页的效果
               direction : 'vertical',//设置滑动方向：垂直
               // loop:true,//设置循环播放
               onInit:(ev)=>{
-                  console.log(ev,ev.activeIndex);
+                  change(ev);
               },
               onTransitionEnd:(ev)=>{
-                  console.log(ev,ev.activeIndex);
+                change(ev);
               }
             });
         }
     }
 })();
-loadPage.init();
+swiperRender.init();
+
